@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from baloosh.models import contact
 from booking import settings
 
 # Create your views here.
@@ -40,7 +41,17 @@ def accomodation(request):
 def gallery(request):
     return render(request, 'gallery.html')
 
-def contact(request):
+def contactus(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        new_message = contact(name = name, email = email, subject = subject, message = message)
+        new_message.save()
+        messages.success(request, "MESSAGE SENT, THANK YOU FOR CONTACTING PANDA")
+
     return render(request, 'contact.html')
 
 def signout(request):
