@@ -179,7 +179,7 @@
                     <div class="modal-body">
                         <div style="border-radius: 1.5rem; background-color: #04091e;" >
                             <div class="book_tabel_item ">
-                                <form action="/" method="POST">
+                                <form action="/login/" method="POST">
                                     {% csrf_token %}
                                         <div class="form-group">
                                             <div class='text-center'>
@@ -232,7 +232,7 @@
                     <div class="modal-body">
                         <div style="border-radius: 1.5rem; background-color: #04091e;" >
                             <div class="book_tabel_item ">
-                                <form action="" method="POST">
+                                <form action="/register/" method="POST">
                                     {% csrf_token %}
                                         <div class="form-group">
                                             <div class='text-center'>
@@ -246,12 +246,12 @@
                                         </div>
                                         <div class="form-group">
                                             <div class='input-group'>
-                                                <input type="text" class="form-control" style="border-radius: 5rem;" id="fname" name="fname" placeholder="FIRST NAME" required="">
+                                                <input type="text" class="form-control" style="border-radius: 5rem;" id="firstname" name="firstname" placeholder="FIRST NAME" required="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class='input-group'>
-                                                <input type="text" class="form-control" style="border-radius: 5rem;" id="lname" name="lname" placeholder="LAST NAME" required="">
+                                                <input type="text" class="form-control" style="border-radius: 5rem;" id="lastname" name="lastname" placeholder="LAST NAME" required="">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -271,11 +271,6 @@
                                         </div>
                                         <div class="form-group">
                                             <div class='input-group'>
-                                                <input type="text" class="form-control" style="border-radius: 5rem;" id="username" name="username" placeholder="username" required="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class='input-group'>
                                                 <input type="password" class="form-control" style="border-radius: 5rem;" id="pass1" name="pass1" placeholder="PASSWORD" required="">
                                             </div>
                                         </div>
@@ -291,7 +286,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class='text-center' >
-                                                <button type="submit" class="book_now_btn button_hover" style="border-radius: 5rem;"><strong>LOGIN</strong></button>
+                                                <button type="submit" class="book_now_btn button_hover" style="border-radius: 5rem;"><strong>REGISTER</strong></button>
                                             </div>
                                         </div>
                                 </form>
