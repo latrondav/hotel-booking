@@ -79,9 +79,19 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'heroku_20303eac18d0bf3',
+        'OPTIONS': {
+
+        'init_command': 'SET default_storage_engine=INNODB',
+        'init_command': "SET sql_mode = 'STRICT_ALL_TABLES';",
+
+        },
+        'USER': 'b0320834660a7e',
+        'PASSWORD': 'b76d54f5',
+        'HOST':'us-cdbr-east-06.cleardb.net',
+        'PORT':'3306',
     }
 }
 
