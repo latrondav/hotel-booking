@@ -101,6 +101,20 @@ def accomodation(request):
         book = Bookings(arrivaldates = arrivaldates, departuredates = departuredates, adults = adults, children = children, noofrooms = noofrooms, roomtypes = roomtypes, )
         book.save()
         messages.success(request, "HOTEL ROOM HAS BEEN BOOKED")
+    return render(request,  'accomodation.html')
+
+def homeaccomodation(request):
+    if request.method == 'POST':
+        arrivaldates = request.POST['arrivaldates']
+        departuredates = request.POST['departuredates']
+        adults = request.POST['adults']
+        children = request.POST['children']
+        noofrooms = request.POST['noofrooms']
+        roomtypes = request.POST['roomtypes']
+
+        book = Bookings(arrivaldates = arrivaldates, departuredates = departuredates, adults = adults, children = children, noofrooms = noofrooms, roomtypes = roomtypes, )
+        book.save()
+        messages.success(request, "HOTEL ROOM HAS BEEN BOOKED")
     return render(request,  'home.html')
 
 def gallery(request):
