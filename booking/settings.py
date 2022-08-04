@@ -81,15 +81,15 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_20303eac18d0bf3',
+        'NAME': 'heroku_959223ed56fa14e',
         'OPTIONS': {
 
         'init_command': 'SET default_storage_engine=INNODB',
         'init_command': "SET sql_mode = 'STRICT_ALL_TABLES';",
 
         },
-        'USER': 'b0320834660a7e',
-        'PASSWORD': 'b76d54f5',
+        'USER': 'bbc02447ce79b1',
+        'PASSWORD': 'ad6e4504',
         'HOST':'us-cdbr-east-06.cleardb.net',
         'PORT':'3306',
     }

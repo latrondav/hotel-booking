@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from baloosh.models import Reservations, Contact
+from baloosh.models import Bookings, Contact
 from django.contrib.auth.models import User
 from booking import settings
 
@@ -79,22 +79,29 @@ def home_register(request):
 
     return render(request, "home.html")
 
+def userview(request):
+    context = {
+        'user' : request.user,
+        
+    }
+    return render(request, 'home.html', context)
+
 def about(request):
     return render(request, 'about.html')
 
 def accomodation(request):
     if request.method == 'POST':
-        arrivaldate = request.POST['arrivaldate']
-        departuredate = request.POST['departuredate']
+        arrivaldates = request.POST['arrivaldates']
+        departuredates = request.POST['departuredates']
         adults = request.POST['adults']
         children = request.POST['children']
         noofrooms = request.POST['noofrooms']
         roomtypes = request.POST['roomtypes']
 
-        reserve = Reservations(arrivaldate = arrivaldate, departuredate = departuredate, adults = adults, children = children, noofrooms = noofrooms, roomtypes = roomtypes, )
-        reserve.save()
-        messages.success(request, "HOTEL ROOM HAS BEEN RESERVED")
-    return render(request, 'accomodation.html', 'home.html')
+        book = Bookings(arrivaldates = arrivaldates, departuredates = departuredates, adults = adults, children = children, noofrooms = noofrooms, roomtypes = roomtypes, )
+        book.save()
+        messages.success(request, "HOTEL ROOM HAS BEEN BOOKED")
+    return render(request,  'home.html')
 
 def gallery(request):
     return render(request, 'gallery.html')
