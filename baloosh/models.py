@@ -16,9 +16,9 @@ class Bookings(models.Model):
     departuredates = models.CharField(max_length=200, null=False, blank=False)
     adults = models.CharField(max_length=200, null=False, blank=False)
     children = models.CharField(max_length=200, null=False, blank=False)
-    noofrooms = models.CharField(max_length=200, null=False, blank=False)
+    noofrooms = models.IntegerField(null=False, blank=False)
     roomtypes = models.CharField(max_length=200, null=False, blank=False)
-    amounts = models.CharField(max_length=200, null=False, blank=False)
+    amounts = models.IntegerField(null=False, blank=False)
 
     def get_amounts(self):
         if self.roomtypes == "SSR":
@@ -55,5 +55,6 @@ class Bookings(models.Model):
         super(Bookings, self).save(*args, **kwargs)
     
     def __str__(self):
-        return str(self.user)
+        return str(self.roomtypes)
+    
 
