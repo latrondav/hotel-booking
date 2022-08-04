@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from baloosh.models import contact
+from baloosh.models import Reservations, Contact
 from django.contrib.auth.models import User
 from booking import settings
 
@@ -83,7 +83,18 @@ def about(request):
     return render(request, 'about.html')
 
 def accomodation(request):
-    return render(request, 'accomodation.html')
+    if request.method == 'POST':
+        arrivaldate = request.POST['arrivaldate']
+        departuredate = request.POST['departuredate']
+        adults = request.POST['adults']
+        children = request.POST['children']
+        noofrooms = request.POST['noofrooms']
+        roomtypes = request.POST['roomtypes']
+
+        reserve = Reservations(arrivaldate = arrivaldate, departuredate = departuredate, adults = adults, children = children, noofrooms = noofrooms, roomtypes = roomtypes, )
+        reserve.save()
+        messages.success(request, "HOTEL ROOM HAS BEEN RESERVED")
+    return render(request, 'accomodation.html', 'home.html')
 
 def gallery(request):
     return render(request, 'gallery.html')
@@ -95,7 +106,7 @@ def contactus(request):
         subject = request.POST['subject']
         message = request.POST['message']
 
-        new_message = contact(name = name, email = email, subject = subject, message = message)
+        new_message = Contact(name = name, email = email, subject = subject, message = message)
         new_message.save()
         messages.success(request, "MESSAGE SENT, THANK YOU FOR CONTACTING PANDA")
 

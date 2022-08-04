@@ -32,61 +32,85 @@
                         </div>
                         <div class="col-md-9">
                             <div class="boking_table">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                            <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker11'>
-                                                    <input type='text' class="form-control" placeholder="Arrival Date"/>
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    </span>
+                                <form action="/accomodation/" method="POST">
+                                    {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="book_tabel_item">
+                                                    <div class="form-group">
+                                                        <div class='input-group date' id='datetimepicker1'>
+                                                            <input type='text' class="form-control" id="arrivaldate" name="arrivaldate" placeholder="Arrival Date"/>
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class='input-group date' id='datetimepicker1'>
+                                                            <input type='text' class="form-control" id="departuredate" name="departuredate"placeholder="Departure Date"/>
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker1'>
-                                                    <input type='text' class="form-control" placeholder="Departure Date"/>
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    </span>
+                                            <div class="col-md-4">
+                                                <div class="book_tabel_item">
+                                                    <div class="input-group">
+                                                        <select class="nice-select wide" id="adults" name="adults">
+                                                            <option data-display="Adult">Adult</option>
+                                                            <option value="1">An adult</option>
+                                                            <option value="2">2 Adults</option>
+                                                            <option value="3">3 Adults</option>
+                                                            <option value="3">4 Adults</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <select class="nice-select wide" id="children" name="children" required="">
+                                                            <option data-display="Child">Child</option>
+                                                            <option value="0">No children</option>
+                                                            <option value="1">A Child</option>
+                                                            <option value="2">2 children</option>
+                                                            <option value="3">3 children</option>
+                                                            <option value="4">3 children</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="book_tabel_item">
+                                                    <div class="input-group">
+                                                        <select class="nice-select wide" id="noofrooms" name="noofrooms" required="">
+                                                            <option data-display="Child">Number of Rooms</option>
+                                                            <option value="1">1 Room</option>
+                                                            <option value="2">2 Rooms</option>
+                                                            <option value="3">3 Rooms</option>
+                                                            <option value="4">4 Rooms</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <select class="nice-select wide" id="roomtypes" name="roomtypes" required="">
+                                                            <option data-display="Room Types">Room Types</option>
+                                                            <option value="SSR">Single Standard Room</option>
+                                                            <option value="DSR">Double Standard Room</option>
+                                                            <option value="TSR">Triple Standard Room</option>
+                                                            <option value="QSR">Quad Standard Room</option>
+                                                            <option value="QuSR">Queen Standard Room</option>
+                                                            <option value="KSR">King Standard Room</option>
+                                                            <option value="TwSR">Twin Standard Room</option>
+                                                            <option value="StSR">Studio Standard Room</option>
+                                                            <option value="SDR">Single Deluxe Room</option>
+                                                            <option value="DDR">Double Deluxe Room</option>
+                                                            <option value="HS">Honeymoon Suite</option>
+                                                            <option value="ES">Executive Suite</option>
+                                                        </select>
+                                                    </div>
+                                                    <button type="submit" class="book_now_btn button_hover" >BOOK NOW</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                            <div class="input-group">
-                                                <select class="nice-select wide">
-                                                    <option data-display="Adult">Adult</option>
-                                                    <option value="1">Old</option>
-                                                    <option value="2">Younger</option>
-                                                    <option value="3">Potato</option>
-                                                </select>
-                                            </div>
-                                            <div class="input-group">
-                                                <select class="nice-select wide">
-                                                    <option data-display="Child">Child</option>
-                                                    <option value="1">Child</option>
-                                                    <option value="2">Baby</option>
-                                                    <option value="3">Child</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                            <div class="input-group">
-                                                <select class="nice-select wide">
-                                                    <option data-display="Child">Number of Rooms</option>
-                                                    <option value="1">Room 01</option>
-                                                    <option value="2">Room 02</option>
-                                                    <option value="3">Room 03</option>
-                                                </select>
-                                            </div>
-                                            <a class="book_now_btn button_hover" href="#">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
