@@ -77,18 +77,21 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 
 DATABASES = {
      'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_959223ed56fa14e',
-        'OPTIONS': {
+        #'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'heroku_959223ed56fa14e',
+        #'OPTIONS': {
 
-        'init_command': 'SET default_storage_engine=INNODB',
-        'init_command': "SET sql_mode = 'STRICT_ALL_TABLES';",
+        #'init_command': 'SET default_storage_engine=INNODB',
+        #'init_command': "SET sql_mode = 'STRICT_ALL_TABLES';",
 
-        },
-        'USER': 'bbc02447ce79b1',
-        'PASSWORD': 'ad6e4504',
-        'HOST':'us-cdbr-east-06.cleardb.net',
-        'PORT':'3306',
+        #},
+        #'USER': 'bbc02447ce79b1',
+        #'PASSWORD': 'ad6e4504',
+        #'HOST':'us-cdbr-east-06.cleardb.net',
+        #'PORT':'3306',
+
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'balooshdb.sqlite3',
     }
 }
 
